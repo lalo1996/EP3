@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="peliculas">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Peliculas</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script type="text/javascript" src="./js/angular/angular.min.js" charset="utf-8"></script>
+  <!-- // Tenemos que importar el controlador como use -->
+  <script type="text/javascript" src="./js/angular/angular-resource.js" charset="utf-8">
+    </script>
+  <script type="text/javascript" src="./js/angular/FirstController.js" charset="utf-8">
+    </script>
+
+
+</head>
+
+<!-- Se necesita importar el controlador en donde se va a ocupar -->
+<body BACKGROUND="fondo.jpg" ng-controller="FirstController">
+
+  <nav class=" red lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">MLD</a>
+      <ul class="right hide-on-med-and-down">
+        <li><i class="large material-icons">movie</i></li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+  <div id="index-banner" class="nav-wrapper">
+    <div class="container">
+      <h1 class="header center white-text">Movielandia</h1>
+    </div>
+  </div>
+
+
+
+  <div class="container ">
+    <div class="section">
+      <div class="row black">
+        <!-- Se recorre el arrelgo de movies
+        con cada atributo  -->
+
+        <div class="col s4" ng-repeat="movie in movies">
+          <div class="card">
+             <div class="card-image waves-effect waves-block waves-light">
+                 <img class="activator" ng-src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}"/>
+             </div>
+             <div class="card-content">
+               <span class="card-title activator grey-text text-darken-4">{{movie.title}}<i class="material-icons right">more_vert</i></span>
+             </div>
+             <div class="card-reveal">
+               <span class="card-title grey-text text-darken-4">{{movie.title}}<i class="material-icons right">close</i></span>
+               <p>{{movie.overview}}</p>
+               <img class="activator" ng-src="https://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}"/>
+             </div>
+           </div>
+
+        </div>
+
+
+      </div>
+    </div>
+    <br><br>
+  </div>
+
+  <!-- <div class="section white"   ng-controller="SecondController">
+  <div class="input-field col s12">
+  <input ng-model="nombre" ng-keyup="contar()" type="text"  class="validate" placeholder="Placeholder">
+   <label for="first_name">Comentarios</label>{{to}}
+  </div>
+
+  <div class="input-field col s6">
+  <a class="btn-floating btn-large waves-effect waves-light red" ng-click="ver()"><i class="material-icons">add</i></a>
+  </div>
+
+  <div class="input-field col s12" ng-repeat="post in arreglo">
+  <h4>{{post.post}}</h4>
+  <h1>{{count}}</h1>
+  </div>
+  </div> -->
+
+  <footer class="page-footer red lighten-1">
+    <div class="row red lighten-1" ng-controller="SecondController">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+               <i class="material-icons prefix">account_circle</i>
+              <textarea ng-model="nombre" id="icon_prefix2" class="materialize-textarea" ng-keyup="contar()"></textarea>
+              <label for="icon_prefix2">Agregar Comentario</label>
+            </div>
+            <div class="input-field col s1">
+            <p>500/{{to}}</p>
+            </div>
+            <div class="input-field col s5">
+            <a class="btn-floating btn-large waves-effect waves-light black" ng-click="ver()"><i class="material-icons">add</i></a>
+            </div>
+            <div class="input-field col s12" ng-repeat="post in arreglo">
+              <div class="col s1">
+                <i class="small material-icons">comment</i>
+              </div>
+            <div class="col s11">
+                 <h6>{{post.post}}</h6>
+            </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Movielandia</h5>
+          <p class="grey-text text-lighten-4">La mejor empresa de peliculas</p>
+          </div>
+        <div class="col l3 s12">
+        </div>
+        <div class="col l3 s12">
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Made by <a class="black-text text-lighten-3">Eduardo</a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+
+
+</html>
